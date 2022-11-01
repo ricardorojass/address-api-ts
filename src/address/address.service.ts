@@ -16,7 +16,7 @@ export class AddressService {
     console.log('====================================');
     console.log('createAddressDto', createAddressDto);
     console.log('====================================');
-    return 'This action adds a new address';
+    return this.adressRepository.create(createAddressDto);
   }
 
   findAll(): Promise<Address[]> {

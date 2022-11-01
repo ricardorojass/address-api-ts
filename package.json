@@ -25,13 +25,14 @@
       "@nestjs/mapped-types": "*",
       "@nestjs/platform-express": "^9.0.0",
       "@nestjs/typeorm": "^9.0.1",
+      "pg": "^8.4.0",
       "postgres": "^3.3.1",
       "reflect-metadata": "^0.1.13",
       "rxjs": "^7.5.5",
-      "typeorm": "0.3.10",
-      "pg": "^8.4.0"
+      "typeorm": "0.3.10"
    },
    "devDependencies": {
+      "@faker-js/faker": "^7.6.0",
       "@nestjs/cli": "^9.0.0",
       "@nestjs/schematics": "^9.0.0",
       "@nestjs/testing": "^9.0.0",
