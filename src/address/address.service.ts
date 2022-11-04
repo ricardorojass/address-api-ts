@@ -13,10 +13,8 @@ export class AddressService {
   ) {}
 
   create(createAddressDto: CreateAddressDto) {
-    console.log('====================================');
-    console.log('createAddressDto', createAddressDto);
-    console.log('====================================');
-    return this.adressRepository.create(createAddressDto);
+    const newAddress = this.adressRepository.create(createAddressDto)
+    return this.adressRepository.save(newAddress);
   }
 
   findAll(): Promise<Address[]> {
@@ -27,11 +25,14 @@ export class AddressService {
     return this.adressRepository.findOneBy({ id });
   }
 
-  update(id: number, updateAddressDto: UpdateAddressDto) {
-    return `This action updates a #${id} address`;
+  async update(id: number, updateAddress: UpdateAddressDto) {
+    const address = await this.adressRepository.findOne({ where: { id } });
+    this.adressRepository.merge(address, updateAddress)
+    return this.adressRepository.save(address)
   }
 
-  async remove(id: number): Promise<void> {
+  async remove(id: number) {
     await this.adressRepository.delete(id);
+    return true;
   }
 }

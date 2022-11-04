@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { AddressModule } from './address/address.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Address } from './address/entities/address.entity'
@@ -17,10 +15,10 @@ import { Address } from './address/entities/address.entity'
       database: 'addressapp',
       entities: [Address],
       migrations: [/*...*/],
-      synchronize: true,
+      synchronize: false,
     }),
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
